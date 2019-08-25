@@ -1,0 +1,66 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use utf8;
+use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat bundling);
+use File::Basename qw(basename);
+
+use open IO => ':encoding(UTF-8)';
+binmode STDIN, ':encoding(UTF-8)';
+binmode STDOUT, ':encoding(UTF-8)';
+binmode STDERR, ':encoding(UTF-8)';
+
+my $cmd_name = basename($0);
+my $usage = <<EOL;
+usage: $cmd_name [<option(s)>] [file(s)]
+fill blank fields with above fields.
+
+options:
+  -d, --delimiter=DELIM   use DELIM instead of TAB for field delimiter
+      --help              print usage
+EOL
+
+sub print_error_and_abort {
+    my ($error) = @_;
+    chomp $error;
+    print STDERR "$cmd_name: $error\n";
+    exit 1;
+}
+
+sub main {
+    local $SIG{__WARN__} = \&print_error_and_abort;
+
+    my $delimiter = "\t";
+    my $is_help   = 0;
+    GetOptions(
+        'd|delimiter=s' => \$delimiter,
+        'help'          => \$is_help,
+    );
+    if ($is_help) {
+        print STDERR $usage;
+        exit 0;
+    }
+
+    my $delimiter_regex = qr{@{[quotemeta($delimiter)]}};
+    my $above_fields    = [];
+    while (my $line = <<>>) {
+        chomp $line;
+
+        my $fields   = [split $delimiter_regex, $line, -1];
+        my $n_fields = @$fields > @$above_fields ? @$fields : @$above_fields;
+        for (my $fi = 0; $fi < $n_fields; $fi++) {
+            if ($fi != 0) {
+                print $delimiter;
+            }
+
+            if ((not defined $fields->[$fi]) || ($fields->[$fi] eq "" && $fi < @$above_fields)) {
+                $fields->[$fi] = $above_fields->[$fi];
+            }
+            $above_fields->[$fi] = $fields->[$fi];
+
+            print $fields->[$fi];
+        }
+        print "\n";
+    }
+}
+main;
