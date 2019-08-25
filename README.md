@@ -1,6 +1,8 @@
 filldown
 ========
 
+[![Build Status](https://travis-ci.org/kusabashira/filldown.svg?branch=master)](https://travis-ci.org/kusabashira/filldown)
+
 fill blank fields with above fields.
 
 ```
