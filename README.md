@@ -37,7 +37,7 @@ options:
 Requirements
 ------------
 
-- Perl (5.8.0 or later)
+- Perl (5.22.0 or later)
 
 Installation
 ------------
