@@ -26,7 +26,7 @@ Usage
 -----
 
 ```
-$ filldown [<option(s)>] [file(s)]
+$ filldown [<option(s)>] [<file(s)>]
 fill blank fields with above fields.
 
 options:
