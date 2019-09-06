@@ -28,7 +28,7 @@ check() {
 @test 'filldown: print usage if "--help" passed' {
   check "$filldown" --help
   [[ $(cat "$exitcode") == 0 ]]
-  [[ $(cat "$stderr") =~ ^usage ]]
+  [[ $(cat "$stdout") =~ ^usage ]]
 }
 
 @test 'filldown: print error if unknown option passed' {

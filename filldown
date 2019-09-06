@@ -37,7 +37,7 @@ sub main {
         'help'          => \$is_help,
     );
     if ($is_help) {
-        print STDERR $usage;
+        print $usage;
         exit 0;
     }
 
