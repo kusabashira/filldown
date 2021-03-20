@@ -202,4 +202,4 @@ check() {
   [[ $(cat "$stdout") == $dst ]]
 }
 
-# vim: ft=sh
+# vim: ft=bash
