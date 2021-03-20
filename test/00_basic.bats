@@ -7,15 +7,11 @@ readonly stderr=$BATS_TEST_DIRNAME/../tmp/stderr
 readonly exitcode=$BATS_TEST_DIRNAME/../tmp/exitcode
 
 setup() {
-  if [[ $BATS_TEST_NUMBER == 1 ]]; then
-    mkdir -p -- "$tmpdir"
-  fi
+  mkdir -p -- "$tmpdir"
 }
 
 teardown() {
-  if [[ ${#BATS_TEST_NAMES[@]} == $BATS_TEST_NUMBER ]]; then
-    rm -rf -- "$tmpdir"
-  fi
+  rm -rf -- "$tmpdir"
 }
 
 check() {

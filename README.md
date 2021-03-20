@@ -1,7 +1,7 @@
 filldown
 ========
 
-[![Build Status](https://travis-ci.org/kusabashira/filldown.svg?branch=master)](https://travis-ci.org/kusabashira/filldown)
+![CI](https://github.com/kusabashira/filldown/workflows/CI/badge.svg)
 
 Fill blank fields with above fields.
 
