@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use utf8;
+use Encode qw(decode_utf8);
 use File::Basename qw(basename);
 use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat bundling);
 
@@ -32,6 +33,9 @@ sub main {
 
     my $delimiter = "\t";
     my $is_help   = 0;
+    foreach (@ARGV) {
+        $_ = decode_utf8($_);
+    }
     GetOptions(
         'd|delimiter=s' => \$delimiter,
         'help'          => \$is_help,

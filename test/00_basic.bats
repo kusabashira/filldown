@@ -202,4 +202,21 @@ check() {
   [[ $(cat "$stdout") == $dst ]]
 }
 
+@test 'filldown: can accept multibyte option' {
+  src=$(printf "%s\n" $'
+  10＞＜00＞＜00
+  ＞＜＞＜10
+  ＞＜＞＜20
+  ' | sed -e '1d' -e 's/^  //')
+  dst=$(printf "%s\n" $'
+  10＞＜00＞＜00
+  10＞＜00＞＜10
+  10＞＜00＞＜20
+  ' | sed -e '1d' -e 's/^  //')
+
+  check "$filldown" --delimiter=＞＜ <<< "$src"
+  [[ $(cat "$exitcode") == 0 ]]
+  [[ $(cat "$stdout") == $dst ]]
+}
+
 # vim: ft=bash
