@@ -2,16 +2,16 @@
 use strict;
 use warnings;
 use utf8;
-use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat bundling);
 use File::Basename qw(basename);
+use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat bundling);
 
 use open IO => ':encoding(UTF-8)';
 binmode STDIN, ':encoding(UTF-8)';
 binmode STDOUT, ':encoding(UTF-8)';
 binmode STDERR, ':encoding(UTF-8)';
 
-my $cmd_name = basename($0);
-my $usage = <<EOL;
+my $cmd_name  = basename($0);
+my $cmd_usage = <<EOL;
 usage: $cmd_name [<option(s)>] [<file(s)>]
 fill blank fields with above fields.
 
@@ -37,8 +37,8 @@ sub main {
         'help'          => \$is_help,
     );
     if ($is_help) {
-        print $usage;
-        exit 0;
+        print $cmd_usage;
+        return;
     }
 
     my $delimiter_regex = qr{@{[quotemeta($delimiter)]}};
