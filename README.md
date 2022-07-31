@@ -1,7 +1,7 @@
 filldown
 ========
 
-![CI](https://github.com/kusabashira/filldown/workflows/CI/badge.svg)
+![CI](https://github.com/nil2nekoni/filldown/workflows/CI/badge.svg)
 
 Fill blank fields with above fields.
 
@@ -48,7 +48,7 @@ Installation
 ### Example
 
 ```
-$ curl -L https://raw.githubusercontent.com/kusabashira/filldown/master/filldown > ~/bin/filldown
+$ curl -L https://raw.githubusercontent.com/nil2nekoni2/filldown/master/filldown > ~/bin/filldown
 $ chmod +x ~/bin/filldown
 ```
 
