@@ -1,3 +1,7 @@
+### v1.2.0 - 2023-12-28
+
+- Enable Getopt::Long permute.
+
 ### v1.1.1 - 2021-11-18
 
 - Allow multibyte options.
