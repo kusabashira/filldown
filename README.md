@@ -30,8 +30,8 @@ $ filldown [<option(s)>] [<file(s)>]
 fill blank fields with above fields.
 
 options:
-  -d, --delimiter=DELIM   use DELIM instead of TAB for field delimiter
-      --help              print usage
+  -d, --delimiter=DELIM  use DELIM instead of TAB for field delimiter
+      --help             print usage and exit
 ```
 
 Requirements

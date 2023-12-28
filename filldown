@@ -17,8 +17,8 @@ usage: $cmd_name [<option(s)>] [<file(s)>]
 fill blank fields with above fields.
 
 options:
-  -d, --delimiter=DELIM   use DELIM instead of TAB for field delimiter
-      --help              print usage
+  -d, --delimiter=DELIM  use DELIM instead of TAB for field delimiter
+      --help             print usage and exit
 EOL
 
 sub print_error_and_abort {
